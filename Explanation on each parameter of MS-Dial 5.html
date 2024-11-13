@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jayaprakash Jayashankar">
+
+<title>Tutorial on MS-Dial 5 – MS-DIAL 5 tutorial</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-f29aaeecf1a46d890de4f9c541966cf8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">MS-DIAL 5 tutorial</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./lipidomics.html"> 
+<span class="menu-text">Lipidomics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./metabolomics.html"> 
+<span class="menu-text">Metabolomics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./proteomics.html"> 
+<span class="menu-text">Proteomics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./imaging.html"> 
+<span class="menu-text">Mass spectrometry imaging</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-utilities" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Utilities</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-utilities">    
+        <li>
+    <a class="dropdown-item" href="./utils.html">
+ <span class="dropdown-text">Other utilities</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./duplicate_alignment_spotfeature.html">
+ <span class="dropdown-text">Duplicate alignment spot feature to separate isomers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Determining MS data types.html">
+ <span class="dropdown-text">Determining Mass Spectrometry (MS) Data Types in MS-Dial: Centroid or Profile</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Determine the optimal minimum peak height.html">
+ <span class="dropdown-text">Determining optimal minimum peak height</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Explanation on each parameter of MS-Dial 5.html">
+ <span class="dropdown-text">Tutorial on MS-Dial 5</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-ms-dial" id="toc-introduction-to-ms-dial" class="nav-link active" data-scroll-target="#introduction-to-ms-dial">1.0 Introduction to MS-Dial</a></li>
+  <li><a href="#importance-of-ms-dial-5" id="toc-importance-of-ms-dial-5" class="nav-link" data-scroll-target="#importance-of-ms-dial-5">2.0 Importance of MS-Dial 5</a></li>
+  <li><a href="#the-differences-between-ms-dial-4-and-ms-dial-5" id="toc-the-differences-between-ms-dial-4-and-ms-dial-5" class="nav-link" data-scroll-target="#the-differences-between-ms-dial-4-and-ms-dial-5">3.0 The differences between MS-DIAL 4 and MS-DIAL 5:</a></li>
+  <li><a href="#step-by-step-guide-on-how-to-set-up-a-project-in-ms-dial-5" id="toc-step-by-step-guide-on-how-to-set-up-a-project-in-ms-dial-5" class="nav-link" data-scroll-target="#step-by-step-guide-on-how-to-set-up-a-project-in-ms-dial-5">4.0 Step-by-step guide on how to set up a project in MS-DIAL 5</a></li>
+  <li><a href="#understanding-fill-and-sn-average-in-mass-spectrometry-data" id="toc-understanding-fill-and-sn-average-in-mass-spectrometry-data" class="nav-link" data-scroll-target="#understanding-fill-and-sn-average-in-mass-spectrometry-data">Understanding “Fill%” and “S/N Average” in Mass Spectrometry data</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tutorial on MS-Dial 5</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jayaprakash Jayashankar </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction-to-ms-dial" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-ms-dial">1.0 Introduction to MS-Dial</h2>
+<p>MS-DIAL is a powerful, open-source software tool designed for the comprehensive analysis of mass spectrometry data, whether for untargeted metabolomics or lipidomics. One of its standout features is its compatibility with a wide range of instruments, including GC/MS, GC/MS/MS, LC/MS, and LC/MS/MS systems, and support for major vendors such as Agilent, Bruker, LECO, Sciex, Shimadzu, Thermo, and Waters. In this latest version, MS-DIAL enhances the user experience by eliminating the need for data format conversion into the ABF format—although it is still supported. Users can now directly import raw MS data. Still, the data can now be imported directly to MS-Dial. MS-DIAL provides a comprehensive ‘start-up kit’ that includes several MSP files with both EI- and MS/MS spectra to facilitate ease of use. MS-DIAL includes an internal version of the Fiehn lab’s GC/MS database, oriented by the FAME RI index, as well as an in-silico retention time- and MS/MS database for LC/MS/MS-based lipidomics. Additionally, MS-DIAL facilitates isotope-labeled tracking in LC/MS projects, making it a powerful tool for detailed metabolic studies and precise quantification. Its user-friendly graphical interface combined with broad functionality makes it a key resource for researchers conducting multi-omics studies (Figure 1).</p>
+<div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Parameters for MS-Dial/Figure 0_1_ website.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: MS-Dial screenshot
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="importance-of-ms-dial-5" class="level2">
+<h2 class="anchored" data-anchor-id="importance-of-ms-dial-5">2.0 Importance of MS-Dial 5</h2>
+<p>The latest version of MS-DIAL 5 aims to be the most versatile tool for multi-omics data analysis and therefore supports direct injection, many separation (GC, LC, CE, SFC), ionization (EI, ESI, MALDI), fragmentation (CID, HCD, ETD, ECD, EIEIO, EID, OAD) and MS/MS (DDA, SWATH, AIF) datasets. In addition, technological advances in fragmentation mechanisms such as electron-impact excitation of ions from organics (EIEIO) have also been taken into account, making it possible to work with these types of data to offer comprehensive structural identification of metabolites, lipids, and proteins. These resources enhance the identification and quantification of metabolites and lipids. After data processing which includes peak picking, deconvolution, compound identification, and peak alignment, MS-DIAL provides several normalization methods (including LOWESS) and a multivariate analysis by principal component analysis (PCA). Finally, for further analysis by other programs, this program can export your result as table format (for SIMCA-P, MetaboAnalyst, and MetFamily etc.), and as several spectral formats including NIST, MassBank, and Mascot formats for compound identifications by MS-FINDER, CSI:FingerID, CFM-ID, MetFrag, and MetFamily etc.</p>
+</section>
+<section id="the-differences-between-ms-dial-4-and-ms-dial-5" class="level2">
+<h2 class="anchored" data-anchor-id="the-differences-between-ms-dial-4-and-ms-dial-5">3.0 The differences between MS-DIAL 4 and MS-DIAL 5:</h2>
+<p><strong>Graphical User Interface (GUI):</strong></p>
+<p>MS-Dial 4: Functional but slightly less refined.</p>
+<p>MS-Dial 5: Improved GUI with more intuitive workflows and better user experience.</p>
+<p><strong>Speed and Performance:</strong></p>
+<p>MS-Dial 4: Effective but slower on larger datasets.</p>
+<p>MS-Dial 5: Optimized for faster data processing, especially for large, multi-omics datasets.</p>
+<p><strong>Annotation Capabilities:</strong></p>
+<p>MS-DIAL 4: Limited to using one database and annotation level in a single analysis. Provides comprehensive annotation of metabolites and lipids through spectral matching using established databases.</p>
+<p>MS-DIAL 5: Enables the use of multiple databases and annotation levels within the same analysis. Significantly improves annotation accuracy by incorporating ion mobility spectrometry (IMS) data and enhanced spectral deconvolution. MS-DIAL 5 also has better integration with larger and more updated databases, improving the annotation of complex molecules like lipids, metabolites, and isomers.</p>
+<p><strong>Annotation Capabilities:</strong></p>
+<p>MS-DIAL 4: Offers only one possible annotation candidate per analysis.</p>
+<p>MS-DIAL 5: Provides multiple annotation candidates from different databases, improving identification accuracy. Adds support for ion mobility spectrometry (IMS), enabling better separation of ions that share the same mass-to-charge ratio (m/z) but have different drift times. This improves separation in complex biological mixtures.</p>
+<p><strong>Isomer Separation:</strong></p>
+<p>MS-Dial 4: It will support basic functionality.</p>
+<p>MS-Dial 5: Enhanced separation of isomers and similar molecular species.</p>
+<p><strong>Peak Picking and Alignment:</strong></p>
+<p>MS-Dial 4: Accurate, but sometimes slower or less accurate with noisy data.</p>
+<p>MS-Dial 5: Refined peak picking and alignment algorithms for better performance, especially with complex datasets.</p>
+<p><strong>Data Formats:</strong></p>
+<p>MS-Dial 4: Supports only (.ABF) format.</p>
+<p>MS-Dial 5: Further extended support for newer formats, including advanced mass spectrometry data.</p>
+<p><strong>Separation Techniques:</strong></p>
+<p>MS-DIAL 4: Supports separation methods like LCMS, LCIMMS, and GCMS.</p>
+<p>MS-DIAL 5: Adds support for direct infusion MS (DIMS) and ion mobility MS (IMMS), broadening the range of separation techniques.</p>
+<p><strong>Collision Types:</strong></p>
+<p>MS-DIAL 4: Works with CID and HCD collision types.</p>
+<p>MS-DIAL 5: Extends support to additional collision types, including ECD, HotECD, EIEIO, EID, and OAD, offering more advanced fragmentation methods.</p>
+<p><strong>Targeted Omics:</strong></p>
+<p>MS-DIAL 4: Focuses on metabolomics and lipidomics analysis.</p>
+<p>MS-DIAL 5: Expands its capabilities to include proteomics, in addition to metabolomics and lipidomics.</p>
+<p><strong>Flexibility in MS Methods:</strong></p>
+<p>MS-DIAL 4: Only one MS method (DDA, SWATH, AIF) can be applied in each analysis.</p>
+<p>MS-DIAL 5: Allows multiple MS methods to be applied to a single analysis, enabling more comprehensive data analysis.</p>
+<p><strong>Undo/Redo Functionality:</strong></p>
+<p>MS-DIAL 4: Does not offer an undo/redo feature when changing an annotation to unknown.</p>
+<p>MS-DIAL 5: Introduces this capability, making it easier to revert or correct annotation changes during data processing.</p>
+</section>
+<section id="step-by-step-guide-on-how-to-set-up-a-project-in-ms-dial-5" class="level2">
+<h2 class="anchored" data-anchor-id="step-by-step-guide-on-how-to-set-up-a-project-in-ms-dial-5">4.0 Step-by-step guide on how to set up a project in MS-DIAL 5</h2>
+<p>This tutorial demonstrates how to start a new project in MS-DIAL 5, covering the steps to import raw data and set the MS method type. To begin, launch MS-DIAL 5 from your desktop or application menu, which will open the main user interface with various options and toolbars. The first step is to create a new project by setting up a dedicated folder where all project files, including raw data and results, will be stored. After selecting New Project from the “File” menu, choose the designated folder to ensure data is organized. Next, you can import raw data directly into MS-DIAL 5 without the need for conversion to ABF format. After selecting your raw data files, proceed to configure the MS method type according to your experiment, ensuring the appropriate settings are in place for accurate data analysis. This streamlined process sets the foundation for efficient data processing in MS-DIAL 5 (Figure 2).</p>
+<div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Parameters for MS-Dial/Figure_1 Website.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Start up a project in MS-DIAL5. First, select a new project to be created (A). Next, click browse to select a location where your project files will be saved (B). Select the folder where you want to save the MS-Dial project (C). Click run to go to the next parameter setting (D)
+</figcaption>
+</figure>
+</div>
+<p>After selecting the project folder, click on Browse in the raw measurement file section, and navigate to the folder where your raw data is stored. Select the raw files you wish to analyze, or simply drag and drop your files (including .d format files) directly into MS-DIAL 5. Once you’ve selected the appropriate files, click Open to import them. After importing your raw data, you can further assign identifiers to your measurements based on sample type (e.g., Sample, Standard, QC, Blank). You can also categorize them by class ID, according to your experimental design. At this point, you need to set the acquisition type for each raw data file.</p>
+<p><strong>Here’s how to set the MS method type:</strong></p>
+<p><strong>DDA (Data-Dependent Acquisition):</strong> Select this if you are analyzing single MS or data-dependent MS/MS data.</p>
+<p><strong>DIA (Data-Independent Acquisition):</strong> Choose this option when analyzing SWATH or AIF data, where MS/MS data is acquired independently of precursor ions.</p>
+<p>For a detailed walkthrough on selecting the acquisition type, refer to the video linked below, which demonstrates the process visually.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/2iy-fsbusYI?si=49SP7rO1YIfv1BUO" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>After selecting the acquisition type, you can further customize your project by setting additional parameters. If your analysis involves multiple batches, you can assign batch numbers to differentiate between them and account for batch effects during data processing. You can also specify the analytical order of your samples, which is useful for tracking trends such as signal drift or other variations that may have occurred throughout the run. Additionally, you can set a dilution factor for each sample, allowing MS-DIAL to adjust the quantification accordingly. If certain samples are not needed for further analysis, you can choose to exclude them from the data processing (Figure 3).</p>
+<div id="fig-3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Parameters for MS-Dial/Figure_2 Website.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Click on the browse icon and point MS-DIAL5 to the folder where your raw data is stored (A). Next, select the raw file format as per your analysis (B). Select the raw files for analysis (C). Further, assign identifiers to your measurements and acquisition type (D)
+</figcaption>
+</figure>
+</div>
+<p>After assigning identifiers to the raw measurement files, click Next to proceed to the Measurement Parameters tab. In this section, you will input the analytical and instrumental parameters that were used during data acquisition. These settings are crucial for ensuring accurate data processing and should align exactly with the experimental conditions under which the measurements were taken (Figure 4).</p>
+<p>The following sections will offer detailed instructions on how to select and configure each parameter within the Measurement Parameters section</p>
+<p><strong>4.1 Measurement Parameters Section:</strong></p>
+<p><strong>1. Ionization type:</strong> Select the soft ionization type, when you are analyzing the ESI data or select hard ionization type when you are analyzing the EI data.</p>
+<p><strong>2. Separation type:</strong> Select chromatography (for LC, GC, CE, or SFC) or direct infusion method as per your analysis. Additionally, you can check ion mobility box coupled with one of the previous options.</p>
+<p><strong>3. Collision type:</strong> Select the corresponding collision type according to your analysis.</p>
+<p><strong>4. Data type (MS1):</strong> Select the profile or centroid data as per your analysis in MS1.</p>
+<p><strong>5. Data type (MS/MS):</strong> Select the profile or centroid data as per your analysis in MS/MS.</p>
+<p>*Refer to the tutorial on MS-Dial on how to determine profile or centroid data type for your analysis using the Rawdataviewer tool in the below link.</p>
+<p><a href="https://systemsomicslab.github.io/msdial5tutorial/Determining%20MS%20data%20types.html">https://systemsomicslab.github.io/msdial5tutorial/Determining%20MS%20data%20types.html</a></p>
+<p><strong>6. Ion mode:</strong> Select the corresponding ion mode according to your analytical setup.</p>
+<p><strong>7. Target Omics:</strong> Select what kind of omics data you want to perform. If you select the ‘lipidomics’ project, you do not have to prepare NIST MSP format library since MS-DIAL internally contains the theoretical MS/MS spectra of lipids (and actually, the fragment ions are future evaluated by the decision tree algorithm to provide the proper lipid structure representation). On the other hand, when you select the ‘metabolomics’ project, your own MSP file will be required for compound identification.</p>
+<p><strong>8. Advanced option:</strong> You can provide additional information regarding your experiment. This metadata will be included in the MassBank, MoNA and NIST (MSP) format export.</p>
+<div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Parameters for MS-Dial/Figure_3 Website.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Overview of the Measurement parameter settings
+</figcaption>
+</figure>
+</div>
+<p>After configuring each parameter in the Measurement Parameters section, click “Next” to proceed to the Data Collection tab. In this section, you will need to enter the data collection parameters that were used during the acquisition of your samples. These parameters are essential for accurately processing and analyzing your data according to the conditions of your experiment (Figure 5).</p>
+<p>The upcoming sections will provide detailed instructions on how to set each parameter in the Data Collection section.</p>
+<p><strong>4.2 Data collection parameters:</strong></p>
+<p><strong>Mass accuracy (Centroid parameter):</strong> After the initial peak detection in MS-DIAL, mass tolerance defines the acceptable range of mass deviation for both MS1 and MS/MS data. By default, mass tolerance values are set to ±0.01 Da for MS1 and ±0.025 Da for MS/MS. This means that peaks within these ranges around the detected mass are integrated and considered for further analysis. Importantly, the MS/MS tolerance also influences how MS/MS chromatograms are constructed, affecting how closely the detected fragment ions need to match the theoretical masses to be included in the MS2Dec deconvolution process.</p>
+<p><strong>Data collection parameters:</strong> In MS-DIAL, you can define the analysis ranges as per your analysis for retention time (RT), MS1, and MS/MS axis to focus on specific parts of your data. For this demonstration, we have chosen the expected data range as follows: In this demo data RT range is 0 - 100 min, and the MS and MS/MS range is 0 – 2000 Da.</p>
+<p><strong>Execute Retention Time Correction:</strong> This setting adjusts for any shifts or drifts in retention times that may occur during the analysis, ensuring that peaks are aligned accurately across different samples or runs. Use this function when you analyze your data on different elution conditions (eg., different columns).</p>
+<p><strong>Isotope Recognition:</strong> Isotope recognition is used to identify and handle isotopic peaks that correspond to the same molecular ion but with different masses due to natural isotopic variations (e.g., [M+1] or [M+2]). This process helps in accurately quantifying the main molecular ion by distinguishing it from its isotopic counterparts. As long as you focus on small molecule research (less than 2000 Da), the maximum charged number can be set to 2. On the other hand, the parameter can be changed to 8 or more to process proteome or snRNA research data.</p>
+<p><strong>Consider Cl and Br Elements:</strong> If you assume your samples might contain chlorine (Cl) or bromine (Br), enable this option as these elements have unique patterns in their isotopic distribution. This setting helps to accurately identify and quantify compounds by recognizing the specific isotopic peaks that Cl and Br create.</p>
+<p><strong>Multithreading:</strong> Please set the count of threads that you want to use. You can check the maximum thread counts in resource monitor. (open task manager-&gt;open resource monitor).</p>
+<div id="fig-5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Parameters for MS-Dial/Figure_4 Website.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Overview of the Data collection parameter setting.
+</figcaption>
+</figure>
+</div>
+<p>Click Next to proceed to the Peak Detection Parameter Settings. In this section, you’ll need to enter the parameters used for peak detection in your mass spectrometry data. This includes specifying values such as the minimum peak height, mass peak width, and exclusion mass list (Figure 6).</p>
+<p>The following sections will offer detailed guidance on how to configure each parameter within the Peak Detection section</p>
+<p><strong>4.3 Peak detection parameter:</strong></p>
+<p><strong>Minimum Peak Height:</strong> Set the minimum intensity level required for a peak to be detected in your data. Peaks with heights below this threshold will be ignored, which helps in filtering out noise and focusing only on significant signals for accurate analysis. Ideally, users put values here based on their own experience that you are looking at the trend of your data. However, based on our experience, the minimum peak height may be set to 1000 as a default value for this demo data. Besides, for FT-MS or Orbitrap data, the minimum peak height maybe 10,000 or more.</p>
+<p>Refer to the tutorial on how to determine the minimum peak height for your analysis using the Rawdataviewer tool in the link below.</p>
+<p><a href="https://systemsomicslab.github.io/msdial5tutorial/Determine%20the%20optimal%20minimum%20peak%20height.html">https://systemsomicslab.github.io/msdial5tutorial/Determine%20the%20optimal%20minimum%20peak%20height.html</a></p>
+<p><strong>Mass Slice Width:</strong> Define the range of mass-to-charge ratios (m/z) around each detected peak that will be considered during data analysis. This width helps in grouping ions within a specified m/z range to improve peak detection and quantification by accounting for slight variations in mass measurements. In this case, we are using 0.1 Da. From our experience, 0.1 and 0.05 are suitable for Q-TOF and Orbitrap, respectively.</p>
+<p><strong>Smoothing method:</strong>Linear-weighted moving average is used for the peak detection as default to accurately determine the peak left- and right edges.</p>
+<p><strong>Smoothing level:</strong> The recommended smoothing level is 1-3. It is the number of points on each side of the peaks.</p>
+<p><strong>Minimum peak width:</strong> Minimum peak width indicates a threshold of peak width for filtering. For example., we choose a minimum peak width set to 5 scans, peaks that span less than 5 scans will be excluded from the results. Only peaks with a width of 5 scans or greater will be included in the analysis.</p>
+<p><strong>Exclusion mass list:</strong> If you already know unwanted m/z peaks because of columns or solvent contaminants, you can specify them to exclude those peaks.</p>
+<div id="fig-6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Parameters for MS-Dial/Figure_5 Website.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Overview of the Peak detection parameter settings.
+</figcaption>
+</figure>
+</div>
+<p>Click Next to proceed to the Spectrum Deconvolution Parameter Settings. In this section, you will configure the parameters for deconvoluting your mass spectrometry data. Key settings include the sigma window value, the MS/MS abundance cut-off value, and the option to exclude peaks following the precursor ion (Figure 7).</p>
+<p>The following sections will provide detailed instructions on how to set each parameter within the Spectrum Deconvolution section.</p>
+<p><strong>4.4 Spectrum deconvolution parameter:</strong></p>
+<p><strong>Sigma window value:</strong> The sigma window value is highly affected by the resolution of deconvolutions. A higher value (0.7-1.0) will reduce the peak top resolutions, i.e.&nbsp;the number of resolved peaks will be decreased. On the other hand, a lower value (0.1-0.3) may also recognize many noise chromatographic peaks. In our demo data, we have chosen 0.5.</p>
+<p><strong>MS/MS Abundance Cut-off:</strong> MS/MS Abundance Cut-off refers to the minimum intensity level of the MS/MS (tandem mass spectrometry) signals that must be reached for a fragment ion to be considered significant and included in the analysis. Unless you have data-independent MS/MS data sets, you can skip this part. However, you may set a cutoff value to reduce the MS peak noise levels.</p>
+<p><strong>Exclude after precursor ion:</strong> If you want to remove the product ions after the focused precursor ion (recommended for metabolomics and lipidomics), check this box.</p>
+<p><strong>Keep the isotopic ions until:</strong> In fact, the isotopic patterns in MS1 spectra are frequently disturbed. On the other hand, there are some cases that the isotopic patterns in MS/MS spectra are clearer than that of MS1 spectra, which can be used for the accurate annotation of molecular formula. If you set this parameter as 5 Da, the ions until precursor + 5 Da are kept after MS2Dec algorithm is finished.</p>
+<p><strong>Keep the isotopic ions w/o MS2Dec:</strong> The MS2Dec algorithm may sometimes erase the precursor’s isotopic ions due to the mathematics issues. Therefore, you can keep the raw MS/MS spectra only for the precursor’s isotopic ions by checking this option.</p>
+<div id="fig-7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Parameters for MS-Dial/Figure_6 Website.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Overview of the Spectrum deconvolution parameter settings.
+</figcaption>
+</figure>
+</div>
+<p>Click Next to proceed to the Identification Parameter Settings. In this section, you will configure parameters related to the identification of compounds, including the database type, lipid profiling settings, annotation options, and retention time settings (Figure 8).</p>
+<p>The following sections will provide detailed instructions on how to set each parameter within the Identification section.</p>
+<p><strong>4.5 Identification parameter:</strong></p>
+<p><strong>MSP file:</strong> In the case that you selected the ‘lipidomics’ project, select what you want to annotate in your data sets for lipid profiling. For example, we selected all the lipids to analyze in our data. For this tutorial data, in which ammonium acetate was used as a solvent type, select HCOONH4 (ammonium formate) as the solvent type in the window ’Lipid database setting, although nowadays CH3COONH4 (ammonium acetate) is basically used as a solvent type.</p>
+<p>If you are selected as a metabolomics project, insert the MSP file. Several MSP files are downloadable as a starter kit for MS-DIAL using below link</p>
+<p><a href="https://systemsomicslab.github.io/compms/msdial/main.html">https://systemsomicslab.github.io/compms/msdial/main.html</a></p>
+<p>MS-DIAL supports the MSP file format in ASCII text. In addition, the software can utilize “RETENTIONTIME:”, “PRECURSORTYPE:”, and “FORMULA:” information for metabolite identification (cases are ignored). Retention time information must be specified in minutes [min] scale when possible. The adduct ion information, i.e.&nbsp;here ‘Precursor type’, will be used for the adduct ion search algorithm. You can also insert your own MSP file by clicking “+” icon in the database setting. Select that MSP file and click on the upper arrow in the annotation method setting to give a first preference.</p>
+<p><strong>Text format library:</strong> MS-DIAL also supports a tab-delimited text format library for peak identification using retention time and MS1 accurate mass information. The identification process is performed after completing peak identification based on the MSP format library. This is why we call this identification processing “post-identification”. The first row should include header information. The first, second, third, and fourth columns should contain the metabolite name, accurate mass [Da], retention time [min], and adduct ion, respectively. This library can be easily created in Microsoft Excel. Save the spreadsheet in “Tab-delimited text format”. This option is useful for internal standard identifications etc. (Even if you don’t have MS/MS libraries, the peak identification based on retention time and accurate mass is available from this option). * The minimum requirement for this text library is just ‘metabolite name’ and ‘m/z’ information; i.e.&nbsp;the first two columns are required. Retention time and adduct ion fields provide additional information for MS-DIAL in peak identification and adduct ion picking, respectively.</p>
+<p>Refer to the tutorial video on MS-DIAL for guidance on how to import a text library file using the link below.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/moAMNYUKimo?si=wveHG6nb_h-Pb5DI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p><strong>Annotation method:</strong> If you put RT information in your MSP file, set the RT tolerance value. For example, the predicted RT information is optimized for the 15-min LC method. If you set the RT time tolerance to 1.5 min for your data. It will compare the RT of the same lipid/metabolite in different sample. If the difference is high means it will not consider that peak in all the samples. If suitable RT information is unavailable, set the tolerance to 100 (default) or larger (larger than your LC time). The two mass tolerances for MS1 and MS2 are required for the compound search and are dependent on your instrument performance.</p>
+<p><strong>MS2 spectrum cut-off:</strong> The minimum intensity value for ions to be considered during analysis. Any fragment ions with intensities below this threshold are excluded from the spectrum, helping to reduce background noise and improve the quality of data interpretation. The mass spectrum peak less than the user-defined value will not be used for the MS/MS similarity calculation. Also, enter the mass range at the beginning and end. If you don’t have information no need to enter. Use the default values.</p>
+<p><strong>Annotation cut-off:</strong> In MS-DIAL, these parameters are crucial for determining how closely your experimental spectra match reference spectra from databases during the identification process. They help score the similarity of fragmentation patterns compared to the record in the database. If the MS/MS has5 peaks for 1 compound, if you give for example., 60%, then 3 peaks should match with a reference database. It is also the same for the minimum number of matched spectra. If you don’t have information no need to give any values. Use the default values.</p>
+<p><strong>4.5.1 Retention time setting:</strong></p>
+<p><strong>Retention time scoring and filtering:</strong> If you set the tolerance and you selected the filtering means, it will not take peaks which the difference in RT between the samples more than you entered in RT tolerance. Unless you check neither Use retention time for scoring nor Use retention time for filtering, the value of RT tolerance does not mean anything. If you didn’t select the RT filtering means the total score will be calculated and compared with the observed peak (RT score) of a lipid/metabolite in your data and the score of the peak (RT score) from a reference library.</p>
+<div id="fig-8" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Parameters for MS-Dial/Figure_7Website.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Overview of the Identification parameter settings. Selecting lipids for the analysis (A). Setting identification parameters (B).
+</figcaption>
+</figure>
+</div>
+<p>Click on Next to proceed to the Adduct Ion Parameter Settings. In this section, you will need to select the adduct ions relevant to your analysis.</p>
+<p>The following sections will provide detailed instructions on how to choose and configure adduct ions for your analysis (Figure 9).</p>
+<p><strong>4.6 Adduct ion parameters:</strong></p>
+<p><strong>Adduct ion setting:</strong> You can tick the adduct ions and charge values which is suitable for your analysis.</p>
+<p><strong>Adduct ion format:</strong> Adduct ion information should be formatted as described in this section: [M+Na]+, [M+2H]2+, [M-2H2O+H]+, [2M+FA-H]-, etc.</p>
+<p>The parentheses ‘[’ and ‘]’ must be used to bracket the ion information. The char + and - are required after ‘]’ and the number must be written before + or -.</p>
+<p>When you want to define the organic formula like C6H12O5, you have to write it without any replicate elements or parentheses like [M+C2H5COOH-H] or [M+H+(CH3)3SiOH].</p>
+<p>The beginning figure of organic formula like ’2’H2O is recognized as the H2O × 2. Again, do not use 2(H2O) to specify this.</p>
+<p>Sequential equations are acceptable: [2M+H-C6H12O5+Na]2+.</p>
+<p>MS-DIAL accepts some abbreviations or common organic formulas for adduct types as follows.</p>
+<p>For Acetonitrile: ACN, CH3CN</p>
+<p>For Methanol: CH3OH</p>
+<p>For Isopropanol: IsoProp, C3H7OH</p>
+<p>For Dimethyl sulfoxide: DMSO</p>
+<p>For Formic acid: FA, HCOOH</p>
+<p>For Acetic acid: Hac, CH3COOH</p>
+<p>For Trifluoroacetic acid: TFA, CFCOOH</p>
+<div id="fig-9" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Parameters for MS-Dial/Figure_8Website.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Overview of the Adduct parameter settings.
+</figcaption>
+</figure>
+</div>
+<p>Click Next to proceed to the Alignment Parameter Settings. In this section, you’ll need to configure various parameters including the reference file, RT tolerance, RT factor, features based on blank information, and peak count filter for adduct ions (Figure 10).</p>
+<p>The following sections will provide detailed instructions on how to set each of these parameters for optimal alignment of your data.</p>
+<p><strong>4.7 Alignment parameters:</strong></p>
+<p><strong>Result name:</strong> The name will be the name of each alignment shown at the tab of ‘Alignment navigator’ in the main window.</p>
+<p><strong>Reference file:</strong> If you already have suitable quality control (QC) data, typically mixed sample data, then specify the QC file in the reference file. All sample data will be aligned to this QC file.</p>
+<p><strong>RT and MS1 tolerances:</strong> The RT and MS1 of the peak will be compared with the library RT and MS spectra. Typically, give the default setting values.</p>
+<p><strong>Retention time factor and MS1 factor:</strong> These values indicate the importance of either RT or MS1 to compare and evaluate the similarity of the spectra among samples based on RT and MS1 tolerance.</p>
+<p>Equation to calculate the RT factor: =exp(-0.5*(sample1(RT)-sample2(RT))/RT tolerance)^2)</p>
+<p>Equation to calculate the m/z factor: =exp(-0.5*(sample1(m/z)-sample2(m/z))/m/z tolerance)^2)</p>
+<p><strong>Peak count filter:</strong> If you want to remove specific peaks that are not fully detected in the alignment, specify the peak count filter.</p>
+<p>For example, if you have 3 biological replicates with the same peak information and the total number of data is 24. Then, you may set the peak count filter as (3/24)∗100. This means peaks will be removed when they include missing values for more than the entered peak count filter (%). In the tutorial data we have only 3 samples.</p>
+<p><strong>N% detected in at least one group:</strong> The filtering is done within each sample group. If it is set to 100%, the peaks should be detected in all of the samples of a class.</p>
+<p><strong>Remove Features Based on Blank Information:</strong> If you include blank sample information in your analysis and want to incorporate it into the results, enable this option. This allows MS-DIAL to evaluate and filter peaks based on the blank sample data. Once this option is checked, you can also adjust the following settings:</p>
+<p><strong>Keep ‘Reference Matched’ Metabolite Features:</strong> This option ensures that any metabolites matched to a reference library (such as MSP or Text libraries) are retained, even if they appear in the blank sample.</p>
+<p><strong>Keep ‘Suggested (without MS2)’ Metabolite Features:</strong> This retains metabolites that are annotated based on their MS1 feature alone, without MS2 data, even if they exceed the blank feature threshold.</p>
+<p><strong>Keep Removable Features and Assign the Tag:</strong> By selecting this, any features that don’t pass the blank feature threshold will still be included in the results, but they will be marked as removable. You can review these features by using the “Blank Filter” checkbox in the Peak Spot Navigator pane. If you uncheck this option, the blank-related features will be fully removed from the analysis, and you will no longer be able to view them after alignment. In our data, we are using the default option set by tool.</p>
+<p><strong>Gap Filling by Compulsion:</strong> This enables to recognition of peaks based on the average peak width of detected metabolites across samples, even if a local maximum isn’t observed in the chromatogram.</p>
+<div id="fig-10" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Parameters for MS-Dial/Figure_9Website.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: Overview of the alignment parameter settings.
+</figcaption>
+</figure>
+</div>
+<p>Click Next to proceed to the Isotope Tracking Settings. In this section, you will configure the settings to enable isotope tracking in your data (Figure 11).</p>
+<p>The following sections will provide detailed instructions on how to set up the isotope tracking parameters for your analysis.</p>
+<p><strong>4.8 Isotope tracking parameter:</strong></p>
+<p><strong>Tracking of isotope labels:</strong> If you check this box, it will identify and monitor the isotopically labeled lipids or metabolites in your sample. This is especially useful in lipidomics or metabolomics experiments where stable isotopes like 13C or 2H are incorporated into lipids or metabolites in your study.</p>
+<div id="fig-11" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Parameters for MS-Dial/Figure_10Website.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: Overview of the Isotope tracking parameter settings.
+</figcaption>
+</figure>
+</div>
+<p>Then you can click Run for the processing of your MS data in MS-Dial 5 and click Save to save the project.</p>
+<p>Once you finished the data processing like peak picking, peak identification, and peak annotation. You can click the export icon to export the results in different forms (Figure 12).</p>
+<p>The following sections will provide detailed instructions on how to export your results.</p>
+<p><strong>4.9 Export:</strong></p>
+<p>Here, in this case, we are using the alignment results export option to get all the spectral information of lipids.</p>
+<p>The following options are used to export the results:</p>
+<p><strong>Peak list export:</strong> You can get the peak list information of each sample including retention time, m/z, MS/MS spectra information, and so on. Available formats are MSP, MGF, or Text.</p>
+<p><strong>Alignment result export:</strong> You can get the results of your data especially spectral information of lipids or metabolites. To export alignment results you just need to choose an export folder path and choose an alignment file that you want to export. Select export format if you want to export the representative spectra. Then click the export button.</p>
+<p><strong>Molecular spectrum networking export:</strong> You can obtain results that show the relationships between molecular features based on their fragmentation patterns.</p>
+<p><strong>Copy screenshot to clipboard (emf):</strong> By copying a screenshot to the clipboard in EMF format, you get a vector-based image that retains high quality when resized.</p>
+<p><strong>Parameter export (Tab-delimited text):</strong> By exporting parameters as a tab-delimited text file, you get a structured file containing the settings and parameters used during your analysis. This format makes it easy to review, share, or import the parameters into other tools.</p>
+<div id="fig-12" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Parameters for MS-Dial/Figure_11Website.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: Overview of the export parameter settings
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="understanding-fill-and-sn-average-in-mass-spectrometry-data" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-fill-and-sn-average-in-mass-spectrometry-data">Understanding “Fill%” and “S/N Average” in Mass Spectrometry data</h2>
+<p>Let’s consider for lipidomics project:</p>
+<p><strong>1: Meaning of Fill%:</strong></p>
+<p>Fill% refers to the proportion of scans or runs in which a particular ion or feature is detected during mass spectrometry analysis. It indicates how consistently the feature is present across multiple injections or samples (Figure 13A).</p>
+<p>Fill% helps assess the reliability of detection for a particular compound in a sample, indicating how frequently it was detected during analysis.</p>
+<p><strong>2: Meaning of S/N average:</strong></p>
+<p>S/N (Signal-to-Noise) Average refers to the average ratio of the signal’s intensity (the compound of interest) to the background noise over multiple scans. A higher S/N ratio indicates a clearer signal against background noise (Figure 13B).</p>
+<p>A higher S/N ratio means that the signal is clearly distinguishable from the noise, indicating reliable detection of the compound.</p>
+<p>Low S/N ratios might indicate that the compound is difficult to detect due to high background noise, which could make identification and quantification less reliable.</p>
+<div id="fig-13" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Parameters for MS-Dial/Figure_12Website.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13: Fill % (A) and S/N average (B) ratio across mass spectrometry data
+</figcaption>
+</figure>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
